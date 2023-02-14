@@ -1,6 +1,15 @@
 import pandas as pd
+from pathlib import Path
+import os
 
-dcc = pd.read_excel('E:/COURSES/Programming Courses/Python Courses/Projects/whatsapp_chat_project/data/pais_codigo.xlsx', index_col=False, engine='openpyxl' )
+base_dir = Path.cwd()
+print(base_dir)
+direct = os.path.join(base_dir, "data\country_code.xlsx")
+print(direct)
+
+dcc = pd.read_excel(direct, 
+                    index_col=False, 
+                    engine='openpyxl')
 dcc_df = pd.DataFrame(dcc)  # Convert to DataFrame
 dcc_list = dcc_df.to_numpy().tolist()  # Convert rows on lists
 # print(df_list)
